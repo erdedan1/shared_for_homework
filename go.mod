@@ -1,4 +1,4 @@
-module github.com/erdeni/shared_for_homework
+module github.com/erdedan1/shared_for_homework
 
 go 1.24.6
 
