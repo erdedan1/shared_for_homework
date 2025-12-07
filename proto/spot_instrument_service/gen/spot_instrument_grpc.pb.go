@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	MarketService_ViewMarkets_FullMethodName = "/order.MarketService/ViewMarkets"
+	MarketService_ViewMarketsByRoles_FullMethodName = "/order.MarketService/ViewMarketsByRoles"
 )
 
 // MarketServiceClient is the client API for MarketService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MarketServiceClient interface {
-	ViewMarkets(ctx context.Context, in *ViewMarketsRequest, opts ...grpc.CallOption) (*ViewMarketsResponse, error)
+	ViewMarketsByRoles(ctx context.Context, in *ViewMarketsRequest, opts ...grpc.CallOption) (*ViewMarketsResponse, error)
 }
 
 type marketServiceClient struct {
@@ -37,10 +37,10 @@ func NewMarketServiceClient(cc grpc.ClientConnInterface) MarketServiceClient {
 	return &marketServiceClient{cc}
 }
 
-func (c *marketServiceClient) ViewMarkets(ctx context.Context, in *ViewMarketsRequest, opts ...grpc.CallOption) (*ViewMarketsResponse, error) {
+func (c *marketServiceClient) ViewMarketsByRoles(ctx context.Context, in *ViewMarketsRequest, opts ...grpc.CallOption) (*ViewMarketsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ViewMarketsResponse)
-	err := c.cc.Invoke(ctx, MarketService_ViewMarkets_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, MarketService_ViewMarketsByRoles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *marketServiceClient) ViewMarkets(ctx context.Context, in *ViewMarketsRe
 // All implementations must embed UnimplementedMarketServiceServer
 // for forward compatibility.
 type MarketServiceServer interface {
-	ViewMarkets(context.Context, *ViewMarketsRequest) (*ViewMarketsResponse, error)
+	ViewMarketsByRoles(context.Context, *ViewMarketsRequest) (*ViewMarketsResponse, error)
 	mustEmbedUnimplementedMarketServiceServer()
 }
 
@@ -62,8 +62,8 @@ type MarketServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMarketServiceServer struct{}
 
-func (UnimplementedMarketServiceServer) ViewMarkets(context.Context, *ViewMarketsRequest) (*ViewMarketsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ViewMarkets not implemented")
+func (UnimplementedMarketServiceServer) ViewMarketsByRoles(context.Context, *ViewMarketsRequest) (*ViewMarketsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ViewMarketsByRoles not implemented")
 }
 func (UnimplementedMarketServiceServer) mustEmbedUnimplementedMarketServiceServer() {}
 func (UnimplementedMarketServiceServer) testEmbeddedByValue()                       {}
@@ -86,20 +86,20 @@ func RegisterMarketServiceServer(s grpc.ServiceRegistrar, srv MarketServiceServe
 	s.RegisterService(&MarketService_ServiceDesc, srv)
 }
 
-func _MarketService_ViewMarkets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _MarketService_ViewMarketsByRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ViewMarketsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MarketServiceServer).ViewMarkets(ctx, in)
+		return srv.(MarketServiceServer).ViewMarketsByRoles(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: MarketService_ViewMarkets_FullMethodName,
+		FullMethod: MarketService_ViewMarketsByRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MarketServiceServer).ViewMarkets(ctx, req.(*ViewMarketsRequest))
+		return srv.(MarketServiceServer).ViewMarketsByRoles(ctx, req.(*ViewMarketsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -112,8 +112,8 @@ var MarketService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MarketServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "ViewMarkets",
-			Handler:    _MarketService_ViewMarkets_Handler,
+			MethodName: "ViewMarketsByRoles",
+			Handler:    _MarketService_ViewMarketsByRoles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

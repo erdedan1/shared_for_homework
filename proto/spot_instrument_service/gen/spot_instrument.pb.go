@@ -213,9 +213,9 @@ const file_spot_instrument_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2U\n" +
-	"\rMarketService\x12D\n" +
-	"\vViewMarkets\x12\x19.order.ViewMarketsRequest\x1a\x1a.order.ViewMarketsResponseB#Z!proto/spot_instrument_service/genb\x06proto3"
+	"deleted_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2\\\n" +
+	"\rMarketService\x12K\n" +
+	"\x12ViewMarketsByRoles\x12\x19.order.ViewMarketsRequest\x1a\x1a.order.ViewMarketsResponseB#Z!proto/spot_instrument_service/genb\x06proto3"
 
 var (
 	file_spot_instrument_proto_rawDescOnce sync.Once
@@ -241,8 +241,8 @@ var file_spot_instrument_proto_depIdxs = []int32{
 	3, // 1: order.Market.created_at:type_name -> google.protobuf.Timestamp
 	3, // 2: order.Market.updated_at:type_name -> google.protobuf.Timestamp
 	3, // 3: order.Market.deleted_at:type_name -> google.protobuf.Timestamp
-	0, // 4: order.MarketService.ViewMarkets:input_type -> order.ViewMarketsRequest
-	1, // 5: order.MarketService.ViewMarkets:output_type -> order.ViewMarketsResponse
+	0, // 4: order.MarketService.ViewMarketsByRoles:input_type -> order.ViewMarketsRequest
+	1, // 5: order.MarketService.ViewMarketsByRoles:output_type -> order.ViewMarketsResponse
 	5, // [5:6] is the sub-list for method output_type
 	4, // [4:5] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name

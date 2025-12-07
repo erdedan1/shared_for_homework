@@ -8,7 +8,7 @@ option go_package = "proto/spot_instrument_service/gen";
 import "google/protobuf/timestamp.proto";
 
 service MarketService {
-    rpc ViewMarkets (ViewMarketsRequest) returns (ViewMarketsResponse);
+    rpc ViewMarketsByRoles (ViewMarketsRequest) returns (ViewMarketsResponse);
 }
 
 message ViewMarketsRequest {
