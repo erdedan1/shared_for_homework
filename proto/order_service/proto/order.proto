@@ -10,21 +10,21 @@ service OrderService {
 }
 
 message CreateOrderRequest {
-    int64 user_id = 1;   
-	int64 market_id = 2;
+    string user_id = 1;   
+	string market_id = 2;
     int64 quantity = 3;
     string order_type = 4;
     string price = 5;
 }
 
 message CreateOrderResponse {
-    int64 id = 1;
+    string id = 1;
     string status = 2;
 }
 
 message GetOrderStatusRequest {
-    int64 user_id = 1;
-    int64 order_id = 2;
+    string user_id = 1;
+    string order_id = 2;
 }
 
 message GetOrderStatusResponse {

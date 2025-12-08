@@ -12,7 +12,7 @@ service MarketService {
 }
 
 message ViewMarketsRequest {
-    repeated int64 user_roles = 1;
+    repeated string user_roles = 1;
 }
 
 message ViewMarketsResponse {
@@ -20,7 +20,7 @@ message ViewMarketsResponse {
 }
 
 message Market {
-    int64 id = 1;
+    string id = 1;
     string name = 2;
     bool enabled = 3;
 
