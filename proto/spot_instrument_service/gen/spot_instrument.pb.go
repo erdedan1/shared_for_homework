@@ -24,7 +24,7 @@ const (
 
 type ViewMarketsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserRoles     []int64                `protobuf:"varint,1,rep,packed,name=user_roles,json=userRoles,proto3" json:"user_roles,omitempty"`
+	UserRoles     []string               `protobuf:"bytes,1,rep,name=user_roles,json=userRoles,proto3" json:"user_roles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,7 +59,7 @@ func (*ViewMarketsRequest) Descriptor() ([]byte, []int) {
 	return file_spot_instrument_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ViewMarketsRequest) GetUserRoles() []int64 {
+func (x *ViewMarketsRequest) GetUserRoles() []string {
 	if x != nil {
 		return x.UserRoles
 	}
@@ -112,7 +112,7 @@ func (x *ViewMarketsResponse) GetMarkets() []*Market {
 
 type Market struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Enabled       bool                   `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -152,11 +152,11 @@ func (*Market) Descriptor() ([]byte, []int) {
 	return file_spot_instrument_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *Market) GetId() int64 {
+func (x *Market) GetId() string {
 	if x != nil {
 		return x.Id
 	}
-	return 0
+	return ""
 }
 
 func (x *Market) GetName() string {
@@ -201,11 +201,11 @@ const file_spot_instrument_proto_rawDesc = "" +
 	"\x15spot_instrument.proto\x12\x05order\x1a\x1fgoogle/protobuf/timestamp.proto\"3\n" +
 	"\x12ViewMarketsRequest\x12\x1d\n" +
 	"\n" +
-	"user_roles\x18\x01 \x03(\x03R\tuserRoles\">\n" +
+	"user_roles\x18\x01 \x03(\tR\tuserRoles\">\n" +
 	"\x13ViewMarketsResponse\x12'\n" +
 	"\amarkets\x18\x01 \x03(\v2\r.order.MarketR\amarkets\"\xf7\x01\n" +
 	"\x06Market\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
 	"\aenabled\x18\x03 \x01(\bR\aenabled\x129\n" +
 	"\n" +
