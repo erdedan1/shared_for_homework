@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
+func RecoveryServerInterceptor() grpc.UnaryServerInterceptor {
 	return func(
 		ctx context.Context,
 		req interface{},

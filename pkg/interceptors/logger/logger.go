@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/metadata"
 )
 
-func UnaryServerInterceptor(log *zap.Logger) grpc.UnaryServerInterceptor {
+func LoggerServerInterceptor(log *zap.Logger) grpc.UnaryServerInterceptor {
 	return func(
 		ctx context.Context,
 		req interface{},

@@ -10,7 +10,7 @@ import (
 
 const requestIDKey string = "x-request-id"
 
-func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
+func XRequestIDServerInterceptor() grpc.UnaryServerInterceptor {
 	return func(
 		ctx context.Context,
 		req interface{},
@@ -33,5 +33,24 @@ func UnaryServerInterceptor() grpc.UnaryServerInterceptor {
 		ctx = metadata.NewIncomingContext(ctx, md)
 
 		return handler(ctx, req)
+	}
+}
+
+func XRequestIDClientInterceptor() grpc.UnaryClientInterceptor {
+	return func(
+		ctx context.Context,
+		method string,
+		req, reply interface{},
+		cc *grpc.ClientConn,
+		invoker grpc.UnaryInvoker,
+		opts ...grpc.CallOption,
+	) error {
+		xReqID, _ := ctx.Value(requestIDKey).(string)
+		if xReqID == "" {
+			xReqID = uuid.New().String()
+		}
+
+		ctx = metadata.AppendToOutgoingContext(ctx, requestIDKey, xReqID)
+		return invoker(ctx, method, req, reply, cc, opts...)
 	}
 }
