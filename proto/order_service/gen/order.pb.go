@@ -264,10 +264,11 @@ const file_order_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x19\n" +
 	"\border_id\x18\x02 \x01(\tR\aorderId\"0\n" +
 	"\x16GetOrderStatusResponse\x12\x16\n" +
-	"\x06status\x18\x01 \x01(\tR\x06status2\xa3\x01\n" +
+	"\x06status\x18\x01 \x01(\tR\x06status2\xfa\x01\n" +
 	"\fOrderService\x12D\n" +
 	"\vCreateOrder\x12\x19.order.CreateOrderRequest\x1a\x1a.order.CreateOrderResponse\x12M\n" +
-	"\x0eGetOrderStatus\x12\x1c.order.GetOrderStatusRequest\x1a\x1d.order.GetOrderStatusResponseB\x19Z\x17proto/order_service/genb\x06proto3"
+	"\x0eGetOrderStatus\x12\x1c.order.GetOrderStatusRequest\x1a\x1d.order.GetOrderStatusResponse\x12U\n" +
+	"\x14SubscribeOrderStatus\x12\x1c.order.GetOrderStatusRequest\x1a\x1d.order.GetOrderStatusResponse0\x01B\x19Z\x17proto/order_service/genb\x06proto3"
 
 var (
 	file_order_proto_rawDescOnce sync.Once
@@ -291,10 +292,12 @@ var file_order_proto_goTypes = []any{
 var file_order_proto_depIdxs = []int32{
 	0, // 0: order.OrderService.CreateOrder:input_type -> order.CreateOrderRequest
 	2, // 1: order.OrderService.GetOrderStatus:input_type -> order.GetOrderStatusRequest
-	1, // 2: order.OrderService.CreateOrder:output_type -> order.CreateOrderResponse
-	3, // 3: order.OrderService.GetOrderStatus:output_type -> order.GetOrderStatusResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	2, // 2: order.OrderService.SubscribeOrderStatus:input_type -> order.GetOrderStatusRequest
+	1, // 3: order.OrderService.CreateOrder:output_type -> order.CreateOrderResponse
+	3, // 4: order.OrderService.GetOrderStatus:output_type -> order.GetOrderStatusResponse
+	3, // 5: order.OrderService.SubscribeOrderStatus:output_type -> order.GetOrderStatusResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
