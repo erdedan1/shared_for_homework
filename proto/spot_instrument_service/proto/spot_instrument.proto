@@ -23,9 +23,10 @@ message Market {
     string id = 1;
     string name = 2;
     bool enabled = 3;
+    repeated string allowed_roles=4;
 
-    google.protobuf.Timestamp created_at = 4;
-    google.protobuf.Timestamp updated_at = 5;
-    google.protobuf.Timestamp deleted_at = 6;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp deleted_at = 8;
 }
 

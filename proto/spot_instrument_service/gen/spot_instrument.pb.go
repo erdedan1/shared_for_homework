@@ -115,9 +115,10 @@ type Market struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Enabled       bool                   `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
+	AllowedRoles  []string               `protobuf:"bytes,4,rep,name=allowed_roles,json=allowedRoles,proto3" json:"allowed_roles,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	DeletedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=deleted_at,json=deletedAt,proto3" json:"deleted_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -173,6 +174,13 @@ func (x *Market) GetEnabled() bool {
 	return false
 }
 
+func (x *Market) GetAllowedRoles() []string {
+	if x != nil {
+		return x.AllowedRoles
+	}
+	return nil
+}
+
 func (x *Market) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
@@ -203,17 +211,18 @@ const file_spot_instrument_proto_rawDesc = "" +
 	"\n" +
 	"user_roles\x18\x01 \x03(\tR\tuserRoles\">\n" +
 	"\x13ViewMarketsResponse\x12'\n" +
-	"\amarkets\x18\x01 \x03(\v2\r.order.MarketR\amarkets\"\xf7\x01\n" +
+	"\amarkets\x18\x01 \x03(\v2\r.order.MarketR\amarkets\"\x9c\x02\n" +
 	"\x06Market\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x18\n" +
-	"\aenabled\x18\x03 \x01(\bR\aenabled\x129\n" +
+	"\aenabled\x18\x03 \x01(\bR\aenabled\x12#\n" +
+	"\rallowed_roles\x18\x04 \x03(\tR\fallowedRoles\x129\n" +
 	"\n" +
-	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
+	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"deleted_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2\\\n" +
+	"deleted_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tdeletedAt2\\\n" +
 	"\rMarketService\x12K\n" +
 	"\x12ViewMarketsByRoles\x12\x19.order.ViewMarketsRequest\x1a\x1a.order.ViewMarketsResponseB#Z!proto/spot_instrument_service/genb\x06proto3"
 
